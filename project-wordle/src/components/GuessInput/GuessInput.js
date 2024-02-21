@@ -4,16 +4,18 @@ function GuessInput() {
 	const [guess, setGuess] = useState("");
 	return (
 		<>
-			<form onSubmit={(event) => {
+			<form className="guess-input-wrapper" 
+        onSubmit={(event) => {
         event.preventDefault();
         console.info({guess})
         setGuess('')
       }}>
-				<label htmlFor="guess-field">
+				<label htmlFor="guess-input">
           Enter guess: 
         </label>
 				<input 
-          id="guess-field" 
+          id="guess-input" 
+          type="text"
           value={guess} 
           onChange={event => {
             setGuess((event.target.value).toUpperCase())
