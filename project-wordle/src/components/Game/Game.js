@@ -5,29 +5,27 @@ import { WORDS } from "../../data";
 import GuessInput from "../GuessInput/GuessInput";
 import GuessResults from "../GuessResults/GuessResults";
 
-
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
 console.info({ answer });
 
 function Game() {
-	const [guesses, setGuesses] = useState([])
+	const [guesses, setGuesses] = useState([]);
 
 	function handleSubmitGuess(tentativeGuess) {
-		// console.log('received guess', guess)
 		const newGuess = {
 			tentativeGuess,
-			id: Math.random()
-		}
+			id: Math.random(),
+		};
 
-		setGuesses([...guesses, newGuess])
+		setGuesses([...guesses, newGuess]);
 	}
 
 	return (
 		<>
-			<GuessResults guesses={guesses}/>
-			<GuessInput handleSubmitGuess={handleSubmitGuess}/>
+			<GuessResults guesses={guesses} />
+			<GuessInput handleSubmitGuess={handleSubmitGuess} />
 		</>
 	);
 }

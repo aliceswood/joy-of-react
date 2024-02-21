@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 function GuessResults({ guesses }) {
 	return (
 		<div className="guess-results">
-			{guesses.map(({ id, guess }) => (
+			{guesses.map(({ id, tentativeGuess }) => (
 				<p key={id} className="guess">
-					{guess}
+					{tentativeGuess}
 				</p>
 			))}
 		</div>
