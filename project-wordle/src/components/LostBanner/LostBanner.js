@@ -1,5 +1,7 @@
 import React from "react";
 import Banner from "../Banner/Banner";
+import RestartButton from '../RestartButton/RestartButton'
+
 
 function LostBanner({ answer }) {
 	return (
@@ -7,6 +9,7 @@ function LostBanner({ answer }) {
 			<p>
 				Sorry, the correct answer is <strong>{answer}</strong>.
 			</p>
+			<RestartButton/>
 		</Banner>
 	);
 }

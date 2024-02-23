@@ -1,5 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
+import RestartButton from '../RestartButton/RestartButton'
 
 function WinBanner({numOfGuesses}) {
   return (
@@ -8,6 +9,7 @@ function WinBanner({numOfGuesses}) {
         <strong>Congratulations!</strong> Got it in
         <strong> {numOfGuesses === 1 ? '1 guess' : `${numOfGuesses} guesses`}</strong>.
       </p>
+      <RestartButton/>
     </Banner>
   );
 }
