@@ -32,7 +32,7 @@ function Game() {
 			<GuessResults guesses={guesses} answer={answer} />
 			<GuessInput handleSubmitGuess={handleSubmitGuess} gameStatus={gameStatus} />
 			{gameStatus !== "in progress" && (
-				<GameOverBanner guesses={guesses} answer={answer} gameStatus={gameStatus} />
+				<GameOverBanner numOfGuesses={guesses.length} answer={answer} gameStatus={gameStatus} />
 			)}
 		</>
 	);
