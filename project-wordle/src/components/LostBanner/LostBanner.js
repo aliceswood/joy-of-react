@@ -3,13 +3,16 @@ import Banner from "../Banner/Banner";
 import RestartButton from '../RestartButton/RestartButton'
 
 
-function LostBanner({ answer }) {
+function LostBanner({ answer, handleRestart }) {
 	return (
-		<Banner status="sad banner">
+		<Banner 
+		status="sad banner"
+		action={handleRestart}
+		actionText="Restart Game"
+		>
 			<p>
 				Sorry, the correct answer is <strong>{answer}</strong>.
 			</p>
-			<RestartButton/>
 		</Banner>
 	);
 }
