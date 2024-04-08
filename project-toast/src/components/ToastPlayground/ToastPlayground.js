@@ -38,61 +38,21 @@ function ToastPlayground() {
 				<div className={styles.row}>
 					<div className={styles.label}>Variant</div>
 					<div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
-						<label htmlFor="variant-notice">
-							<input
-								id="variant-notice"
-								type="radio"
-								name="variant"
-								value="notice"
-								checked={variant === "notice"}
-								onChange={(event) => {
-									setVariant(event.target.value);
-								}}
-							/>
-							notice
-						</label>
-
-						<label htmlFor="variant-warning">
-							<input
-								id="variant-warning"
-								type="radio"
-								name="variant"
-								value="warning"
-								checked={variant === "warning"}
-								onChange={(event) => {
-									setVariant(event.target.value);
-								}}
-							/>
-							warning
-						</label>
-
-						<label htmlFor="variant-success">
-							<input
-								id="variant-success"
-								type="radio"
-								name="variant"
-								value="success"
-								checked={variant === "success"}
-								onChange={(event) => {
-									setVariant(event.target.value);
-								}}
-							/>
-							success
-						</label>
-
-						<label htmlFor="variant-error">
-							<input
-								id="variant-error"
-								type="radio"
-								name="variant"
-								value="error"
-								checked={variant === "error"}
-								onChange={(event) => {
-									setVariant(event.target.value);
-								}}
-							/>
-							error
-						</label>
+						{VARIANT_OPTIONS.map((option) => (
+							<label key={option} htmlFor={option}>
+								<input
+									id={option}
+									type="radio"
+									name="variant"
+									value="notice"
+									checked={variant === option}
+									onChange={(event) => {
+										setVariant(event.target.value);
+									}}
+								/>
+								{option}
+							</label>
+						))}
 					</div>
 				</div>
 
