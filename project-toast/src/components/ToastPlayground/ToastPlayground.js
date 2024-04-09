@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Button from "../Button";
+import Toast from "../Toast";
 
 import styles from "./ToastPlayground.module.css";
 
@@ -17,6 +18,7 @@ function ToastPlayground() {
 				<h1>Toast Playground</h1>
 			</header>
 
+      <Toast message={message} variant={variant}/>
 			<div className={styles.controlsWrapper}>
 				<div className={styles.row}>
 					<label htmlFor="message" className={styles.label} style={{ alignSelf: "baseline" }}>
