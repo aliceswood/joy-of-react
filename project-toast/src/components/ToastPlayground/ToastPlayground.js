@@ -18,7 +18,9 @@ function ToastPlayground() {
 				<h1>Toast Playground</h1>
 			</header>
 
-      <Toast message={message} variant={variant}/>
+			<Toast variant={variant}>
+        {message}
+      </Toast>
 			<div className={styles.controlsWrapper}>
 				<div className={styles.row}>
 					<label htmlFor="message" className={styles.label} style={{ alignSelf: "baseline" }}>
