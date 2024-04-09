@@ -28,7 +28,9 @@ function ToastPlayground() {
 		// setIsVisible((current) => !current);
 	}
 
-	function handleCreateToast() {
+	function handleCreateToast(event) {
+    event.preventDefault();
+
 		const nextToastList = [
 			...toastList,
 			{
@@ -51,7 +53,9 @@ function ToastPlayground() {
 
 			<ToastShelf toastList={toastList} />
 
-			<div className={styles.controlsWrapper}>
+			<form 
+      onSubmit={handleCreateToast} 
+      className={styles.controlsWrapper}>
 				<div className={styles.row}>
 					<label htmlFor="message" className={styles.label} style={{ alignSelf: "baseline" }}>
 						Message
@@ -95,10 +99,12 @@ function ToastPlayground() {
 				<div className={styles.row}>
 					<div className={styles.label} />
 					<div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
-						<Button onClick={handleCreateToast}>Pop Toast!</Button>
+						<Button>
+              Pop Toast!
+            </Button>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 	);
 }
