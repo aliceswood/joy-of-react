@@ -10,6 +10,11 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 function ToastPlayground() {
 	const [message, setMessage] = useState("");
 	const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
+	const [isVisible, setIsVisible] = useState(false);
+
+	function handleDismiss() {
+		setIsVisible((current) => !current);
+	}
 
 	return (
 		<div className={styles.wrapper}>
@@ -18,9 +23,12 @@ function ToastPlayground() {
 				<h1>Toast Playground</h1>
 			</header>
 
-			<Toast variant={variant}>
-        {message}
-      </Toast>
+			{isVisible && (
+				<Toast variant={variant} isVisible={isVisible} handleDismiss={handleDismiss}>
+					{message}
+				</Toast>
+			)}
+
 			<div className={styles.controlsWrapper}>
 				<div className={styles.row}>
 					<label htmlFor="message" className={styles.label} style={{ alignSelf: "baseline" }}>
@@ -66,7 +74,13 @@ function ToastPlayground() {
 				<div className={styles.row}>
 					<div className={styles.label} />
 					<div className={`${styles.inputWrapper} ${styles.radioWrapper}`}>
-						<Button>Pop Toast!</Button>
+						<Button
+							onClick={() => {
+								setIsVisible(true);
+							}}
+						>
+							Pop Toast!
+						</Button>
 					</div>
 				</div>
 			</div>
