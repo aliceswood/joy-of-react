@@ -10,7 +10,6 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 function ToastPlayground() {
 	const [message, setMessage] = useState("");
 	const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
-	// const [isVisible, setIsVisible] = useState(false);
 	const [toastList, setToastList] = useState([
 		{
 			id: crypto.randomUUID(),
@@ -24,9 +23,13 @@ function ToastPlayground() {
 		},
 	]);
 
-	function handleDismiss() {
-		// setIsVisible((current) => !current);
-	}
+	function handleDismiss(id) {
+    const nextToastList = toastList.filter(toast => {
+      return toast.id !== id
+    })
+
+    setToastList(nextToastList)
+  	}
 
 	function handleCreateToast(event) {
     event.preventDefault();
@@ -51,13 +54,20 @@ function ToastPlayground() {
 				<h1>Toast Playground</h1>
 			</header>
 
-			<ToastShelf toastList={toastList} />
+			<ToastShelf 
+        toastList={toastList} 
+        handleDismiss={handleDismiss}
+      />
 
 			<form 
       onSubmit={handleCreateToast} 
       className={styles.controlsWrapper}>
 				<div className={styles.row}>
-					<label htmlFor="message" className={styles.label} style={{ alignSelf: "baseline" }}>
+					<label 
+            htmlFor="message" 
+            className={styles.label} 
+            style={{ alignSelf: "baseline" }}
+            >
 						Message
 					</label>
 					<div className={styles.inputWrapper}>
