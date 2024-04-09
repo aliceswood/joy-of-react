@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { ToastContext } from "../ToastProvider/ToastProvider";
 
 import Button from "../Button";
 import ToastShelf from "../ToastShelf/ToastShelf";
@@ -10,18 +12,8 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 function ToastPlayground() {
 	const [message, setMessage] = useState("");
 	const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
-	const [toastList, setToastList] = useState([
-		{
-			id: crypto.randomUUID(),
-			message: "This is FYI",
-			variant: "notice",
-		},
-		{
-			id: crypto.randomUUID(),
-			message: "Oh no!",
-			variant: "error",
-		},
-	]);
+		
+  const { toastList, setToastList } = React.useContext(ToastContext);
 
 	function handleDismiss(id) {
     const nextToastList = toastList.filter(toast => {
