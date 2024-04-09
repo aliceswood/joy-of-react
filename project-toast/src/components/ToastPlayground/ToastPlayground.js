@@ -41,7 +41,6 @@ function ToastPlayground() {
 							value={message}
 							onChange={(event) => {
 								setMessage(event.target.value);
-								console.log;
 							}}
 						/>
 					</div>
