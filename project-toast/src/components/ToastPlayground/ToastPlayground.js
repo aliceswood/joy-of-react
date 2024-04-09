@@ -38,6 +38,8 @@ function ToastPlayground() {
 			},
 		];
 		setToastList(nextToastList);
+    setMessage('');
+    setVariant(VARIANT_OPTIONS[0]);
 	}
 
 	return (
