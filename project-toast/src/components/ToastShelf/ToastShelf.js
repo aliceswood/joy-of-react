@@ -5,7 +5,7 @@ import { ToastContext } from "../ToastProvider/ToastProvider";
 import Toast from "../Toast";
 import styles from "./ToastShelf.module.css";
 
-function ToastShelf({ handleDismiss }) {
+function ToastShelf() {
 	const {toastList} = useContext(ToastContext);
 
 	return (
@@ -19,7 +19,6 @@ function ToastShelf({ handleDismiss }) {
 					<Toast 
 						id={toast.id} 
 						variant={toast.variant} 
-						handleDismiss={handleDismiss}
 					>
 						{toast.message}
 					</Toast>

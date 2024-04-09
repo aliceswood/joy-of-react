@@ -18,9 +18,31 @@ function ToastProvider({ children }) {
 		};
 	}, []);
 
-	
+	function createToast(message, variant) {
+		const nextToastList = [
+			...toastList,
+			{
+				id: crypto.randomUUID(),
+				message,
+				variant,
+			},
+		];
+
+		setToastList(nextToastList);
+	}
+
+	function dismissToast(id) {
+		const nextToastList = toastList.filter((toast) => {
+			return toast.id !== id;
+		});
+
+		setToastList(nextToastList);
+	}
+
 	return (
-		<ToastContext.Provider value={{ toastList, setToastList }}>{children}</ToastContext.Provider>
+		<ToastContext.Provider value={{ toastList, createToast, dismissToast }}>
+			{children}
+		</ToastContext.Provider>
 	);
 }
 
