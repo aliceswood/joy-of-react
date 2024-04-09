@@ -44,7 +44,7 @@ function ToastPlayground() {
 									id={option}
 									type="radio"
 									name="variant"
-									value="notice"
+									value={option}
 									checked={variant === option}
 									onChange={(event) => {
 										setVariant(event.target.value);
